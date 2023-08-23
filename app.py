@@ -113,12 +113,20 @@ def predict():
   X = pad_X(word_vectors)
 
   prediction = model.predict(X)[0][0]
+  display_score = str(round(prediction * 100, 2))
 
   if(prediction < 0.5):
-    return render_template('index.html', input_string=input_string, prediction_text='Negative', score=prediction)
+    return render_template('index.html',
+            input_string=input_string,
+            prediction_text='Negative',
+            score=prediction,
+            display_score=display_score)
   else:
-    return render_template('index.html', input_string=input_string, prediction_text='Positive', score=prediction)
-
+    return render_template('index.html',
+            input_string=input_string,
+            prediction_text='Positive',
+            score=prediction,
+            display_score=display_score)
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=5000, debug=True)
