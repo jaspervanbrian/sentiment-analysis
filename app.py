@@ -58,7 +58,7 @@ def tokenize_review(input_string):
       skip_next_word = False
       continue
 
-    if(token.dep_ == "neg" and i < (doc_len - 1) and doc[i + 1].pos_ == "ADJ" and doc[i + 1].dep_ == "acomp"):
+    if(token.dep_ == "neg" and i < (doc_len - 1) and doc[i + 1].pos_ == "ADJ"):
       antonym = antonym_for(doc[i + 1].lemma_)
 
       if(antonym != set()):
