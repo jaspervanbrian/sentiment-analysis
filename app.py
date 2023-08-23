@@ -112,7 +112,7 @@ def predict():
   word_vectors = [message_to_word_vectors(input_string)]
   X = pad_X(word_vectors)
 
-  prediction = model.predict(X)[0][0
+  prediction = model.predict(X)[0][0]
 
   if(prediction < 0.5):
     return render_template('index.html', input_string=input_string, prediction_text='Negative', score=prediction)
