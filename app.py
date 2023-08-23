@@ -26,7 +26,7 @@ for line in glove_file:
 glove_file.close()
 
 # Load trained Pipeline
-# model = load_model('model.keras')
+model = load_model('model.keras')
 nlp = spacy.load('en_core_web_lg')
 
 # Create the app object
@@ -112,9 +112,8 @@ def predict():
   word_vectors = [message_to_word_vectors(input_string)]
   X = pad_X(word_vectors)
 
-  # prediction = model.predict(X)[0]
+  prediction = model.predict(X)[0]
 
-  prediction = 0.49
   if(prediction < 0.5):
     return render_template('index.html', input_string=input_string, prediction_text='Negative', score=prediction)
   else:
